@@ -56,7 +56,7 @@ immediately gets the message.
 To do that, use the following command when trying to connect to the consumer shell:
 `kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic meesages --from-beginning`
 ## Python usage
-**First step**: create a topic from kafka shell if does not exist.
+**First step**: create a topic from kafka shell if does not exist.  
 **Second step**: Install python kafka package:  
 `pip install kafka-python`  
 **Third step**: Execute consumer.py and producer.py respectively. every 5 seconds a message is sent to the messages
