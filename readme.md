@@ -26,13 +26,13 @@ following command:
 You may use the following command to get information about a topic such as partition count or replication factor:
 `kafka-topics.sh --describe --zookeeper zookeeper:2181 --topic <TOPIC_NAME>`
 #### delete
-`kafka-topics.sh --delete --zookeper zookeper:2181 --topic <TOPIC_NAME>`
+`kafka-topics.sh --delete --zookeeper zookeeper:2181 --topic <TOPIC_NAME>`
 ### Kafka producers
 To begin with, we create a new topic named "messages" that simulates a multi-user chat:  
 `kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic messages`
 
 To connect to producer shell, enter the following command:
-`kafka-console-producer.sh --broker-list kafka:9092 --topic meessages`
+`kafka-console-producer.sh --broker-list kafka:9092 --topic messages`
 
 Then, in whichever format we like, we may insert two messages:  
 `{'user_id': 1, 'recipient_id': 2, 'meesage': 'Hi.'}`  
@@ -55,4 +55,9 @@ immediately gets the message.
 **What if we want to list all produced messages for a specific topic!?**  
 To do that, use the following command when trying to connect to the consumer shell:
 `kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic meesages --from-beginning`
-
+## Python usage
+**First step**: create a topic from kafka shell if does not exist.
+**Second step**: Install python kafka package:  
+`pip install kafka-python`  
+**Third step**: Execute consumer.py and producer.py respectively. every 5 seconds a message is sent to the messages
+topic and consumer is able to show that.
